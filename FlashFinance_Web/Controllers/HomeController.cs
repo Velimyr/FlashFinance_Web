@@ -15,6 +15,7 @@ namespace FlashFinance_Web.Controllers
         {
             IEnumerable<Bills> bills = db.Bills;
             ViewBag.Bills = bills;
+            ViewBag.Registers = db.Registers;
             return View();
         }
 

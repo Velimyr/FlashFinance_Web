@@ -26,5 +26,6 @@ namespace FlashFinance_Web
         }
     
         public virtual DbSet<Bills> Bills { get; set; }
+        public virtual DbSet<Registers> Registers { get; set; }
     }
 }

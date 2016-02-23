@@ -50,3 +50,31 @@
         }
     </table>
  </div>
+<br />
+
+<div class="row">
+    
+    <table>
+        <tr>
+            <td>Номер</td>
+            <td>Категорія</td>
+            <td>Тип видатків\доходів</td>
+            <td>Сума</td>
+            <td>Рахунок</td>
+            <td>Дата</td>
+            <td>Коментар</td>
+        </tr>
+        @foreach (var item in ViewBag.Registers)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Register_Category</td>
+                <td>@item.Register_Type</td>
+                <td>@item.Register_Balance</td>
+                <td>@item.Register_Bill</td>
+                <td>@item.Register_Date</td>
+                <td>@item.Comments</td>
+            </tr>
+        }
+    </table>
+</div>
