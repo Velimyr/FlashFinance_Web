@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using FlashFinance_Web.Models;
+//using FlashFinance_Web.Models;
 
 namespace FlashFinance_Web.Controllers
 {
@@ -13,8 +13,8 @@ namespace FlashFinance_Web.Controllers
         FlashFinanceEntities db = new FlashFinanceEntities();
         public ActionResult Index()
         {
-            IEnumerable<Bills> bills = db.Bills;
-            ViewBag.Bills = bills;
+           // IEnumerable<Bills> bills = db.Bills;
+            ViewBag.Bills = db.Bills;
             ViewBag.Registers = db.Registers;
             return View();
         }
@@ -31,6 +31,26 @@ namespace FlashFinance_Web.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult AddRegister ()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public string AddRegister (Registers RegisterItem)
+        {            
+            //if (RegisterItem.Id == 0)
+            //{
+            //    int MaxID = db.Registers.Max(r => r.Id);
+            //    RegisterItem.Id = MaxID+1;
+            //}
+                       
+            db.Registers.Add(RegisterItem);
+            db.SaveChanges();
+            return "Ok";
         }
     }
 }

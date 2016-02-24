@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+table {
+   vertical-align:middle;
+   text-align:left;     
+   border:solid;
+   grid-cell:initial;
+ }

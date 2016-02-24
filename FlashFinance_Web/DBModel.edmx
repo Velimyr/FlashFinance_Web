@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="FlashFinanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="FlashFinanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bills">
           <Key>
             <PropertyRef Name="id" />
@@ -15,8 +15,6 @@
           <Property Name="Created_Date" Type="datetime" />
           <Property Name="Currency" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'FlashFinance.dbo.Registers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Registers">
           <Key>
             <PropertyRef Name="Id" />
@@ -31,19 +29,10 @@ warning 6002: The table/view 'FlashFinance.dbo.Registers' does not have a primar
         </EntityType>
         <EntityContainer Name="FlashFinanceModelStoreContainer">
           <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Registers" EntityType="Self.Registers" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Registers].[Id] AS [Id], 
-    [Registers].[Register_Category] AS [Register_Category], 
-    [Registers].[Register_Type] AS [Register_Type], 
-    [Registers].[Register_Date] AS [Register_Date], 
-    [Registers].[Register_Balance] AS [Register_Balance], 
-    [Registers].[Register_Bill] AS [Register_Bill], 
-    [Registers].[Comments] AS [Comments]
-    FROM [dbo].[Registers] AS [Registers]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Registers" EntityType="Self.Registers" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FlashFinanceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -57,10 +46,6 @@ warning 6002: The table/view 'FlashFinance.dbo.Registers' does not have a primar
           <Property Name="Created_Date" Type="DateTime" Precision="3" />
           <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="FlashFinanceEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Bills" EntityType="Self.Bills" />
-          <EntitySet Name="Registers" EntityType="FlashFinanceModel.Registers" />
-        </EntityContainer>
         <EntityType Name="Registers">
           <Key>
             <PropertyRef Name="Id" />
@@ -73,6 +58,10 @@ warning 6002: The table/view 'FlashFinance.dbo.Registers' does not have a primar
           <Property Name="Register_Bill" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityContainer Name="FlashFinanceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bills" EntityType="Self.Bills" />
+          <EntitySet Name="Registers" EntityType="Self.Registers" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -93,13 +82,13 @@ warning 6002: The table/view 'FlashFinance.dbo.Registers' does not have a primar
           <EntitySetMapping Name="Registers">
             <EntityTypeMapping TypeName="FlashFinanceModel.Registers">
               <MappingFragment StoreEntitySet="Registers">
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="Register_Bill" ColumnName="Register_Bill" />
-                <ScalarProperty Name="Register_Balance" ColumnName="Register_Balance" />
-                <ScalarProperty Name="Register_Date" ColumnName="Register_Date" />
-                <ScalarProperty Name="Register_Type" ColumnName="Register_Type" />
-                <ScalarProperty Name="Register_Category" ColumnName="Register_Category" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Register_Category" ColumnName="Register_Category" />
+                <ScalarProperty Name="Register_Type" ColumnName="Register_Type" />
+                <ScalarProperty Name="Register_Date" ColumnName="Register_Date" />
+                <ScalarProperty Name="Register_Balance" ColumnName="Register_Balance" />
+                <ScalarProperty Name="Register_Bill" ColumnName="Register_Bill" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
