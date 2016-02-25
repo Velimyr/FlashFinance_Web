@@ -3,16 +3,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div class="top">
-        <input type="button" value="Додати запис" onclick="location.href='@Url.Action("AddRegister", "Home" )'" />
+<div class="body-content">
+    <div class="body-content-menu">
+        <span>
+            <input type="button" value="Додати запис" onclick="location.href='@Url.Action("AddRegister", "Home" )'" />
+            <input type="button" value="1111111" onclick="location.href='@Url.Action("AddRegister", "Home" )'" />
+            <input type="button" value="запис" onclick="location.href='@Url.Action("AddRegister", "Home" )'" />
+            <input type="button" value="Додати " onclick="location.href='@Url.Action("AddRegister", "Home" )'" />
+        </span>
     </div>
 
     <div class="row">
-        @*<h3>Flash Finance v 1.0</h3>*@
-        <table class="row">
-            <td>Номер</td>
-            <td>Назва</td>
-            <td>Валюта</td>
+        <h3>@Culture.ToString()</h3>
+        @if (Culture!="")
+        { 
+            <h3>@Resources.Localization.SubText</h3>
+        }
+        <table class="flat-table">
+            <tbody>
+                <tr>
+                    <th>Номер</th>
+                    <th>Назва</th>
+                    <th>Валюта</th>
+                </tr>
             </tr>
             @foreach (var item in ViewBag.Bills)
             {
@@ -22,34 +35,38 @@
                     <td>@item.Currency</td>
                 </tr>
             }
+            </tbody>
         </table>
     </div>
     <br />
 
-    <div class="row">
-        <table class="table">
-            <tr>
-                <td>Номер</td>
-                <td>Категорія</td>
-                <td>Тип видатків\доходів</td>
-                <td>Сума</td>
-                <td>Рахунок</td>
-                <td>Дата</td>
-                <td>Коментар</td>
-                <td></td>
-            </tr>
-            @foreach (var item in ViewBag.Registers)
-            {
+    <div class="body-content">
+        <table class="flat-table">
+            <tbody>
                 <tr>
-                    <td>@item.Id</td>
-                    <td>@item.Register_Category</td>
-                    <td>@item.Register_Type</td>
-                    <td>@item.Register_Balance</td>
-                    <td>@item.Register_Bill</td>
-                    <td>@item.Register_Date</td>
-                    <td>@item.Comments</td>
-                    <td><p><a href="/Home/RegisterDelete/@item.Id">Видалити</a></p></td>
+                    <th>Номер</th>
+                    <th>Категорія</th>
+                    <th>Тип видатків\доходів</th>
+                    <th>Сума</th>
+                    <th>Рахунок</th>
+                    <th>Дата</th>
+                    <th>Коментар</th>
+                    <th></th>
                 </tr>
-            }
+                @foreach (var item in ViewBag.Registers)
+            {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Register_Category</td>
+                        <td>@item.Register_Type</td>
+                        <td>@item.Register_Balance</td>
+                        <td>@item.Register_Bill</td>
+                        <td>@item.Register_Date</td>
+                        <td>@item.Comments</td>
+                        <td><p><a href="/Home/RegisterDelete/@item.Id">Видалити</a></p></td>
+                    </tr>
+                }
+            </tbody>
         </table>
     </div>
+</div>

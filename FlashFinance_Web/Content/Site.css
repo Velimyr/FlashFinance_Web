@@ -23,9 +23,35 @@ textarea {
     max-width: 280px;
 }
 
-table {
+/*table {
    vertical-align:middle;
    text-align:left;     
    border:solid;
    grid-cell:initial;
- }
+   border-collapse: collapse;
+   border-spacing: 0;
+ }*/
+
+
+/*=====================================================*/
+.flat-table {
+  display: block;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 100%;
+  overflow: auto;
+  width: auto;
+}
+.flat-table th {
+  background-color: #699EC4;
+  color: white;
+  font-weight: normal;
+  padding: 20px 20px;
+  text-align: center;
+}
+.flat-table td {
+  background-color: #eeeeee;
+  color: #6f6f6f;
+  padding: 10px 15px;
+}
+/*=====================================================*/
