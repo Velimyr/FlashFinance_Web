@@ -3,38 +3,37 @@
     ViewBag.Title = "AddRegister";
 }
 
-<h2>AddRegister</h2>
+<h2>@Resources.Localization.registeradd_header</h2>
 
 <div class="row">
     <form method="post" action="">
-        <table>
-            @*<input type="hidden" value="0" name="Id" />*@
+        <table class="element-table">            
             <tr>
-                <td>Категорія</td>
+                <th>@Resources.Localization.register_category</th>
                 <td><input type="text" value="" name="Register_Category" /></td>
             </tr>
             <tr>
-                <td>Тип видатків\доходів</td>
+                <th>@Resources.Localization.register_type</th>
                 <td><input type="text" value="" name="Register_Type" /></td>
             </tr>
             <tr>
-                <td>Сума</td>
+                <th>@Resources.Localization.register_ballance</th>
                 <td><input type="text" value="" name="Register_Balance" /></td>
             </tr>
             <tr>
-                <td>Рахунок</td>
+                <th>@Resources.Localization.bill_name</th>
                 <td><input type="text" value="" name="Register_Bill" /></td>
             </tr>
             <tr>
-                <td>Дата</td>
+                <th>@Resources.Localization.date</th>
                 <td><input type="text" value="" name="Register_Date" /></td>
             </tr>
             <tr>
-                <td>Коментар</td>
+                <th>@Resources.Localization.comment</th>
                 <td><input type="text" value="" name="Comments" /></td>
             </tr>
         </table>
-        <input type="submit" value="Зберегти" />
+        <input type="submit" value="@Resources.Localization.save_action" />
         </form>
 </div>
 

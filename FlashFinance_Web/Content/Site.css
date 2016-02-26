@@ -55,3 +55,20 @@ textarea {
   padding: 10px 15px;
 }
 /*=====================================================*/
+
+.element-table
+{
+  display: block;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 100%;
+  overflow: auto;
+  width: auto;
+}
+.element-table th {
+    
+  }
+
+.element-table td{
+        padding-left: 20px;
+    }

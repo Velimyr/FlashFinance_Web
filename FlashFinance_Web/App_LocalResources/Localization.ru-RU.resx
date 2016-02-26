@@ -123,4 +123,40 @@
   <data name="SubText" xml:space="preserve">
     <value>Некоторый текст</value>
   </data>
+  <data name="add_action" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="bill_currency" xml:space="preserve">
+    <value>Валюта</value>
+  </data>
+  <data name="bill_name" xml:space="preserve">
+    <value>Название счета</value>
+  </data>
+  <data name="comment" xml:space="preserve">
+    <value>Комментарий</value>
+  </data>
+  <data name="date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="delete_action" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="id" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="registeradd_header" xml:space="preserve">
+    <value>Добавление новой записи рассходов</value>
+  </data>
+  <data name="register_ballance" xml:space="preserve">
+    <value>Сумма</value>
+  </data>
+  <data name="register_category" xml:space="preserve">
+    <value>Категория</value>
+  </data>
+  <data name="register_type" xml:space="preserve">
+    <value>Тип доходов</value>
+  </data>
+  <data name="save_action" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
 </root>

@@ -44,6 +44,7 @@ namespace FlashFinance_Web.Controllers
             base.Initialize(requestContext);
         }
       FlashFinanceEntities db = new FlashFinanceEntities();
+       
         public ActionResult Index()
         {
             ViewBag.Bills = db.Bills;
