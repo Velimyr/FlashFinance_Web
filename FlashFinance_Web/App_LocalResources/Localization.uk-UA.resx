@@ -118,54 +118,54 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="add_action" xml:space="preserve">
-    <value>Add</value>
+    <value>Додати</value>
   </data>
   <data name="bill_currency" xml:space="preserve">
-    <value>Bill currency</value>
+    <value>Валюта</value>
   </data>
   <data name="bill_name" xml:space="preserve">
-    <value>Bill name</value>
+    <value>Назва рахунку</value>
   </data>
   <data name="comment" xml:space="preserve">
-    <value>Comment</value>
+    <value>Коментар</value>
   </data>
   <data name="date" xml:space="preserve">
-    <value>Date</value>
+    <value>Дата</value>
   </data>
   <data name="delete_action" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="eng" xml:space="preserve">
-    <value>english</value>
+    <value>Видалити</value>
   </data>
   <data name="id" xml:space="preserve">
-    <value>ID</value>
+    <value>Номер</value>
   </data>
   <data name="registeradd_header" xml:space="preserve">
-    <value>Add new register</value>
+    <value>Додати новий запис видатків</value>
   </data>
   <data name="register_ballance" xml:space="preserve">
-    <value>Ballance</value>
+    <value>Сума</value>
   </data>
   <data name="register_category" xml:space="preserve">
-    <value>Category</value>
+    <value>Категорія</value>
   </data>
   <data name="register_type" xml:space="preserve">
-    <value>Type</value>
+    <value>Тип видатків</value>
   </data>
   <data name="save_action" xml:space="preserve">
-    <value>Save</value>
+    <value>Зберегти</value>
   </data>
   <data name="SubText" xml:space="preserve">
-    <value>Some text</value>
+    <value>Деякий текст</value>
+  </data>
+  <data name="ukr" xml:space="preserve">
+    <value>українська</value>
   </data>
   <data name="date_begin" xml:space="preserve">
-    <value>Begin date</value>
+    <value>Початкова дата</value>
   </data>
   <data name="end_date" xml:space="preserve">
-    <value>End date</value>
+    <value>Кінцева дата</value>
   </data>
   <data name="filter_action" xml:space="preserve">
-    <value>Apply filters</value>
+    <value>Застосувати фільтри</value>
   </data>
 </root>

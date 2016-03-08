@@ -12,6 +12,8 @@ namespace FlashFinance_Web
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class FlashFinanceEntities : DbContext
     {
@@ -27,5 +29,18 @@ namespace FlashFinance_Web
     
         public virtual DbSet<Bills> Bills { get; set; }
         public virtual DbSet<Registers> Registers { get; set; }
+    
+        public virtual ObjectResult<P_FlashFinance_Registers_Get_Result> P_FlashFinance_Registers_Get(Nullable<System.DateTime> datebegin, Nullable<System.DateTime> dateend)
+        {
+            var datebeginParameter = datebegin.HasValue ?
+                new ObjectParameter("datebegin", datebegin) :
+                new ObjectParameter("datebegin", typeof(System.DateTime));
+    
+            var dateendParameter = dateend.HasValue ?
+                new ObjectParameter("dateend", dateend) :
+                new ObjectParameter("dateend", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<P_FlashFinance_Registers_Get_Result>("P_FlashFinance_Registers_Get", datebeginParameter, dateendParameter);
+        }
     }
 }

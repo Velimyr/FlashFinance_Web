@@ -106,6 +106,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Begin date.
+        /// </summary>
+        public static string date_begin {
+            get {
+                return ResourceManager.GetString("date_begin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string delete_action {
@@ -115,11 +124,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to End date.
+        /// </summary>
+        public static string end_date {
+            get {
+                return ResourceManager.GetString("end_date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to english.
         /// </summary>
         public static string eng {
             get {
                 return ResourceManager.GetString("eng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply filters.
+        /// </summary>
+        public static string filter_action {
+            get {
+                return ResourceManager.GetString("filter_action", resourceCulture);
             }
         }
         

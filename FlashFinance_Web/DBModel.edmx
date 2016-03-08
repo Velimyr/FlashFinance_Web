@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FlashFinanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FlashFinanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Bills">
           <Key>
             <PropertyRef Name="id" />
@@ -27,12 +27,15 @@
           <Property Name="Register_Bill" Type="nvarchar" MaxLength="50" />
           <Property Name="Comments" Type="nvarchar" MaxLength="500" />
         </EntityType>
+        <Function Name="P_FlashFinance_Registers_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="datebegin" Type="datetime" Mode="In" />
+          <Parameter Name="dateend" Type="datetime" Mode="In" />
+        </Function>
         <EntityContainer Name="FlashFinanceModelStoreContainer">
           <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Registers" EntityType="Self.Registers" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FlashFinanceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -61,7 +64,20 @@
         <EntityContainer Name="FlashFinanceEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bills" EntityType="Self.Bills" />
           <EntitySet Name="Registers" EntityType="Self.Registers" />
+          <FunctionImport Name="P_FlashFinance_Registers_Get" ReturnType="Collection(FlashFinanceModel.P_FlashFinance_Registers_Get_Result)">
+            <Parameter Name="datebegin" Mode="In" Type="DateTime" />
+            <Parameter Name="dateend" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="P_FlashFinance_Registers_Get_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Register_Category" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Register_Type" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Register_Date" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="Register_Balance" Nullable="true" />
+          <Property Type="String" Name="Register_Bill" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Comments" Nullable="true" MaxLength="500" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -92,6 +108,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="P_FlashFinance_Registers_Get" FunctionName="FlashFinanceModel.Store.P_FlashFinance_Registers_Get">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FlashFinanceModel.P_FlashFinance_Registers_Get_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Register_Category" ColumnName="Register_Category" />
+                <ScalarProperty Name="Register_Type" ColumnName="Register_Type" />
+                <ScalarProperty Name="Register_Date" ColumnName="Register_Date" />
+                <ScalarProperty Name="Register_Balance" ColumnName="Register_Balance" />
+                <ScalarProperty Name="Register_Bill" ColumnName="Register_Bill" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

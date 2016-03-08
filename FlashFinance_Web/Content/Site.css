@@ -41,6 +41,7 @@ textarea {
   font-size: 100%;
   overflow: auto;
   width: auto;
+  padding-top: 10px;
 }
 .flat-table th {
   background-color: #699EC4;
