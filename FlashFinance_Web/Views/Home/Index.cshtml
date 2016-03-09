@@ -44,7 +44,7 @@
     <br />
 
  
-    @using (Ajax.BeginForm("FilterRegister", "Register" , new AjaxOptions {}))
+    @using (Ajax.BeginForm("FilterRegister_NoJquery", "Register" , new AjaxOptions { UpdateTargetId = "registerlist_1" }))
     {
     <div class="row">
         <span>
@@ -52,13 +52,14 @@
             <input type="text" id="datepicker" name="begin">
             @Resources.Localization.end_date
             <input type="text" id="datepicker_end" name="end">           
-            <input type="submit" value=@Resources.Localization.filter_action/>
+            <input type="submit" id="refresh" value=@Resources.Localization.filter_action/>
             @*<input type="button" id="submit_filter" value=@Resources.Localization.filter_action />*@
         </span>
     </div>
     }   
-    <div class="row_registers">
-        <table class="flat-table">
+
+    <div class="row" id="registerlist_1">
+        <table class="flat-table" >
             <tbody>
                 <tr>
                     <th>@Resources.Localization.id</th>
@@ -70,6 +71,7 @@
                     <th>@Resources.Localization.comment</th>
                     <th></th>
                 </tr>
+                <tbody id="registerlist">
                 @foreach (var item in ViewBag.Registers)
             {
                     <tr>
@@ -83,7 +85,41 @@
                         <td><p><a href="/Home/RegisterDelete/@item.Id">@Resources.Localization.delete_action</a></p></td>
                     </tr>
                 }
+                    </tbody>
             </tbody>
         </table>
     </div>
+
+    @*<div class="row_registers"  id="myPartialViewContainer">
+   
+        <table class="flat-table" id="table2">
+            <thead>
+                <tr>
+                    <th>@Resources.Localization.id</th>
+                    <th>@Resources.Localization.register_category</th>
+                    <th>@Resources.Localization.register_type</th>
+                    <th>@Resources.Localization.register_ballance</th>
+                    <th>@Resources.Localization.bill_name</th>
+                    <th>@Resources.Localization.date</th>
+                    <th>@Resources.Localization.comment</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="registerlist2">
+                @foreach (var item in ViewBag.Registers)
+            {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Register_Category</td>
+                        <td>@item.Register_Type</td>
+                        <td>@item.Register_Balance</td>
+                        <td>@item.Register_Bill</td>
+                        <td>@item.Register_Date</td>
+                        <td>@item.Comments</td>
+                        <td><p><a href="/Home/RegisterDelete/@item.Id">@Resources.Localization.delete_action</a></p></td>
+                    </tr>
+                }
+            </tbody>          
+        </table>
+    </div>*@
 </div>
