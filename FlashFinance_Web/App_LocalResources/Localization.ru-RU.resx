@@ -159,4 +159,13 @@
   <data name="save_action" xml:space="preserve">
     <value>Сохранить</value>
   </data>
+  <data name="date_begin" xml:space="preserve">
+    <value>Начальная дата</value>
+  </data>
+  <data name="end_date" xml:space="preserve">
+    <value>Конечная дата</value>
+  </data>
+  <data name="filter_action" xml:space="preserve">
+    <value>Применить фильтры</value>
+  </data>
 </root>

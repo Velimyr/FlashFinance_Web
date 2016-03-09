@@ -159,4 +159,13 @@
   <data name="ukr" xml:space="preserve">
     <value>українська</value>
   </data>
+  <data name="date_begin" xml:space="preserve">
+    <value>Початкова дата</value>
+  </data>
+  <data name="end_date" xml:space="preserve">
+    <value>Кінцева дата</value>
+  </data>
+  <data name="filter_action" xml:space="preserve">
+    <value>Застосувати фільтри</value>
+  </data>
 </root>

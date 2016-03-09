@@ -3,11 +3,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+@Scripts.Render("~/Scripts/User/Register.js");
+
 <div class="body-content">
     <div class="body-content-menu">
         <span>
             <input type="button" value=@Resources.Localization.add_action onclick="location.href='@Url.Action("AddRegister", "Home" )'" />
-            <input type="button" value="1111111" onclick="location.href='@Url.Action("AddRegister", "Home" )'" />
+           
+             <input type="button" value="1111111" onclick="location.href='@Url.Action("AddRegister", "Home" )'" />
             <input type="button" value="запис" onclick="location.href='@Url.Action("AddRegister", "Home" )'" />
             <input type="button" value="Додати " onclick="location.href='@Url.Action("AddRegister", "Home" )'" />
         </span>
@@ -35,7 +43,21 @@
     </div>
     <br />
 
-    <div class="body-content">
+ 
+    @using (Ajax.BeginForm("FilterRegister", "Register" , new AjaxOptions {}))
+    {
+    <div class="row">
+        <span>
+            @Resources.Localization.date_begin
+            <input type="text" id="datepicker" name="begin">
+            @Resources.Localization.end_date
+            <input type="text" id="datepicker_end" name="end">           
+            <input type="submit" value=@Resources.Localization.filter_action/>
+            @*<input type="button" id="submit_filter" value=@Resources.Localization.filter_action />*@
+        </span>
+    </div>
+    }   
+    <div class="row_registers">
         <table class="flat-table">
             <tbody>
                 <tr>

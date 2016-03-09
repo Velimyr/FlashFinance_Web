@@ -10,10 +10,8 @@
 namespace FlashFinance_Web
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class Registers
+    
+    public partial class P_FlashFinance_Registers_Get_Result
     {
         public int Id { get; set; }
         public string Register_Category { get; set; }

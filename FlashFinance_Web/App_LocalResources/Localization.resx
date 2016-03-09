@@ -159,4 +159,13 @@
   <data name="SubText" xml:space="preserve">
     <value>Some text</value>
   </data>
+  <data name="date_begin" xml:space="preserve">
+    <value>Begin date</value>
+  </data>
+  <data name="end_date" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="filter_action" xml:space="preserve">
+    <value>Apply filters</value>
+  </data>
 </root>
